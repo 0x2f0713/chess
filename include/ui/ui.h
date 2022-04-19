@@ -4,6 +4,7 @@ typedef struct context {
     bool quit;
     SDL_Window* window;
     SDL_Renderer* renderer;
+    SDL_Event e;
     context() {
         quit = false;
         window = NULL;
@@ -11,5 +12,7 @@ typedef struct context {
     }
 } context;
 
+void init(context* ctx) ;
 bool initWindow(context* ctx);
+bool initIMGLoader();
 void destroyWindow(context* ctx);

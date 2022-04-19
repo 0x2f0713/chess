@@ -21,7 +21,8 @@
 					"build" : "src",
 					"childIndexes" : 
 					[
-						2
+						2,
+						3
 					],
 					"minimumCMakeVersion" : 
 					{
@@ -48,6 +49,20 @@
 					[
 						0
 					]
+				},
+				{
+					"build" : "src/screen",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/screen",
+					"targetIndexes" : 
+					[
+						2
+					]
 				}
 			],
 			"name" : "Debug",
@@ -58,13 +73,15 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					],
 					"name" : "Chess",
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -80,8 +97,15 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "chess::@145eef247bfb46b6828c",
-					"jsonFile" : "target-chess-Debug-2a150a9310f1d91e9058.json",
+					"jsonFile" : "target-chess-Debug-037555a1aa097c001a54.json",
 					"name" : "chess",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "screen::@838791c4027ac48f57da",
+					"jsonFile" : "target-screen-Debug-79e18014c989037e2b59.json",
+					"name" : "screen",
 					"projectIndex" : 0
 				}
 			]

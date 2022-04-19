@@ -1,21 +1,30 @@
 #include "include/ui/ui.h"
+#include "include/screen/lobby.h"
+
+#include <iostream>
 int main() {
   context ctx = context();
   bool init = initWindow(&ctx);
   if (init) {
     // Get window surface
-    SDL_Surface* screenSurface = SDL_GetWindowSurface(ctx.window);
+    
 
-    // Fill the surface white
-    SDL_FillRect(screenSurface, NULL,
-                 SDL_MapRGB(screenSurface->format, 0xFF, 0xFF, 0xFF));
-
-    // Update the surface
-    SDL_UpdateWindowSurface(ctx.window);
-
-    // Wait two seconds
-    SDL_Delay(2000);
   }
+  else {
+      ctx.quit = true;
+      // Implement logging here
+  }
+  initScreen(ctx.window);
+  while (!ctx.quit) {
+    while (SDL_PollEvent(&(ctx.e)) != 0) {
+      // User requests quit
+      if (ctx.e.type == SDL_QUIT) {
+        ctx.quit = true;
+      }
+    }
+
+  }
+
   destroyWindow(&ctx);
 
   return 0;
