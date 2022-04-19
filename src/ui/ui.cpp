@@ -1,12 +1,7 @@
 #include "include/ui/ui.h"
-
 #include "SDL2/SDL_image.h"
 #include "include/constant.h"
 
-void init(context* ctx) {
-  initWindow(ctx);
-  initIMGLoader();
-}
 bool initWindow(context* ctx) {
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {

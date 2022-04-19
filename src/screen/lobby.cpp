@@ -1,5 +1,15 @@
+#include <map>
+#include <string>
 #include "include/screen/lobby.h"
 #include "SDL2/SDL_image.h"
+#include "SDL2/SDL.h"
+
+
+std::map<std::string, int> mediaList {
+    {"STANDARD_BOARD", 10},
+    {"PLAYHAND_ICON", 15},
+    {"QUIT_ICON", 20},
+};
 
 void initScreen(SDL_Window* window) {
     SDL_Surface* screenSurface = SDL_GetWindowSurface(window);

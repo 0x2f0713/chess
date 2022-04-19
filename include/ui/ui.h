@@ -12,7 +12,6 @@ typedef struct context {
     }
 } context;
 
-void init(context* ctx) ;
 bool initWindow(context* ctx);
 bool initIMGLoader();
 void destroyWindow(context* ctx);

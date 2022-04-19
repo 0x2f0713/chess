@@ -1,14 +1,11 @@
 #include "include/ui/ui.h"
 #include "include/screen/lobby.h"
 
-#include <iostream>
 int main() {
   context ctx = context();
   bool init = initWindow(&ctx);
   if (init) {
-    // Get window surface
-    
-
+    initScreen(ctx.window);
   }
   else {
       ctx.quit = true;
