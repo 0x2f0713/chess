@@ -7,6 +7,10 @@ This project is under development. Tested on Ubuntu 20.04
 ```
 sudo apt-get install libsdl2-dev
 ```
+##### Install SDL2 TTF
+```
+sudo apt-get install libsdl2-ttf-dev
+```
 ##### Install image library (If install SDL2 Image from source)
 ```
 sudo apt-get install libjpeg62-dev # For JPEG
