@@ -28,3 +28,4 @@ void destroyWindow(context* ctx);
 /* Utilities */
 SDL_Surface* loadMedia(std::string mediaPath, SDL_Surface* surface);
 void updateSurface(SDL_Surface* src, SDL_Surface* des, int x, int y, int w, int h);
+void updateRenderer();

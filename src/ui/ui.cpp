@@ -1,5 +1,7 @@
 #include "include/ui/ui.h"
 
+#include <iostream>
+
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "include/constant.h"
@@ -14,10 +16,15 @@ bool initWindow(context* ctx) {
     return false;
   } else {
     // Create window
-    ctx->window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_UNDEFINED,
-                                   SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
-                                   SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-    if (ctx->window == NULL) {
+    // ctx->window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_UNDEFINED,
+    //                                SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
+    //                                SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    int result = SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT,
+                                             SDL_WINDOW_SHOWN, &(ctx->window),
+                                             &(ctx->renderer));
+    if (ctx->window == NULL || ctx->renderer == NULL || result != 0) {
+      std::cout << "Failed to create window and renderer: " << SDL_GetError()
+                << std::endl;
       return false;
     }
   }
@@ -31,10 +38,10 @@ bool initTTF() {
   }
   return true;
 }
-bool loadFont(TTF_Font* &font) {
+bool loadFont(TTF_Font*& font) {
   font = TTF_OpenFont("resources/fonts/Montserrat-Regular.ttf", 24);
   if (!font) {
-    SDL_LogError(1, "Failed to load font: %s", TTF_GetError() );
+    SDL_LogError(1, "Failed to load font: %s", TTF_GetError());
     return false;
   }
   return true;
@@ -89,4 +96,8 @@ void updateSurface(SDL_Surface* src, SDL_Surface* des, int x, int y, int w,
   offset.h = h;
   // SDL_BlitSurface(src, NULL, des, &offset);
   SDL_BlitScaled(src, NULL, des, &offset);
+}
+
+void updateRenderer() {
+  // SDL_RenderPresent( renderer );
 }
